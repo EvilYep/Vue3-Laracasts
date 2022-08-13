@@ -4,6 +4,18 @@ import AssignmentTags from "./AssignmentTags.js";
 export default {
     components: { Assignment, AssignmentTags },
 
+    /*******************************************************************************
+    *                                                                              *
+    *                           Thing is :                                         *
+    *                                                                              *
+    *               <input type="text" v-model="name">                             *
+    *                                                                              *
+    *               behind the scene, it's the same as :                           *
+    *                                                                              *
+    *   <input type="text" :value="name" @input="name = $event.target.value">      *
+    *                                                                              *
+    *******************************************************************************/
+
     template: `
         <section  v-show="assignments.length">
             <h2 class="font-bold mb-2">
