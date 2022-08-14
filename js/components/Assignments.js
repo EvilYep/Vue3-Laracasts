@@ -15,11 +15,7 @@ export default {
 
     data() {
         return {
-            assignments: [
-                { name: 'Finish project', complete: false, id: 1, tag: 'science'},
-                { name: 'Red chapter 4', complete: false, id: 2, tag: 'science'},
-                { name: 'Turn in stuff', complete: false, id: 3, tag: 'math'},
-            ],
+            assignments: [],
         }
     },
 
@@ -30,6 +26,14 @@ export default {
                 completed: this.assignments.filter(a => a.complete)
             }
         }
+    },
+
+    created() {
+        fetch('http://127.0.0.1:3000/assignments')
+            .then(response => response.json())
+            .then(assignments => {
+                this.assignments = assignments;
+            })
     },
 
     methods: {
