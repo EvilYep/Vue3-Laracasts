@@ -24,7 +24,7 @@ export default {
             </h2>
 
             <assignment-tags 
-                v-model="currentTag"
+                v-model:currentTag="currentTag"
                 :initial-tags="assignments.map(a => a.tag)"
             />
 
